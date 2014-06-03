@@ -1,0 +1,9 @@
+{
+    "id" : "SnakeTournament",
+    "version" : "0.1.0",
+    "author" : "",
+    "displayName" : "SnakeTournament",
+    "description" : "",
+    "dependencies" : [],
+    "isServerSideOnly" : false
+}
