@@ -20,9 +20,11 @@ import org.terasology.entitySystem.event.ReceiveEvent;
 import org.terasology.entitySystem.systems.BaseComponentSystem;
 import org.terasology.entitySystem.systems.RegisterMode;
 import org.terasology.entitySystem.systems.RegisterSystem;
+import org.terasology.math.Side;
 import org.terasology.math.Vector3i;
 import org.terasology.physics.events.MovedEvent;
 import org.terasology.registry.In;
+import org.terasology.snakeTournament.events.CharacterTrappedEvent;
 import org.terasology.world.WorldProvider;
 import org.terasology.world.block.Block;
 import org.terasology.world.block.BlockManager;
@@ -57,6 +59,22 @@ public class BlockTrailAuthoritySystem extends BaseComponentSystem {
             // characters are approximately 2 blocks tall, add another block at the head level
             previousBlockPosition.add(0, 1, 0);
             worldProvider.setBlock(previousBlockPosition, trailBlock);
+
+            if (isPositionTrapped(currentBlockPosition)) {
+                character.send(new CharacterTrappedEvent());
+            }
         }
+    }
+
+    private boolean isPositionTrapped(Vector3i position) {
+        // check to see if all adjacent blocks are not air
+        int surroundedSideCount = 0;
+        for (Side side : Side.horizontalSides()) {
+            Vector3i adjacentBlockPosition = side.getAdjacentPos(position);
+            if (worldProvider.getBlock(adjacentBlockPosition) != BlockManager.getAir()) {
+                surroundedSideCount++;
+            }
+        }
+        return surroundedSideCount == 4;
     }
 }
