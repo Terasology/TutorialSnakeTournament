@@ -71,7 +71,7 @@ public class BlockTrailAuthoritySystem extends BaseComponentSystem {
         int surroundedSideCount = 0;
         for (Side side : Side.horizontalSides()) {
             Vector3i adjacentBlockPosition = side.getAdjacentPos(position);
-            if (worldProvider.getBlock(adjacentBlockPosition) != BlockManager.getAir()) {
+            if (worldProvider.getBlock(adjacentBlockPosition) != BlockManager.getBlock(BlockManager.AIR_ID)) {
                 surroundedSideCount++;
             }
         }
