@@ -4,6 +4,11 @@
     "author" : "",
     "displayName" : "SnakeTournament",
     "description" : "",
-    "dependencies" : [],
-    "isServerSideOnly" : false
+    "dependencies" : [
+          {
+                "id" : "Core",
+                "minVersion" : "1.0.0"
+          },
+    ],
+    "serverSideOnly" : false
 }
