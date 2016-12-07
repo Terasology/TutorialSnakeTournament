@@ -21,15 +21,14 @@ import org.terasology.entitySystem.systems.BaseComponentSystem;
 import org.terasology.entitySystem.systems.RegisterMode;
 import org.terasology.entitySystem.systems.RegisterSystem;
 import org.terasology.math.Side;
-import org.terasology.math.Vector3i;
+import org.terasology.math.geom.Vector3i;
+import org.terasology.math.geom.Vector3f;
 import org.terasology.physics.events.MovedEvent;
 import org.terasology.registry.In;
 import org.terasology.snakeTournament.events.CharacterTrappedEvent;
 import org.terasology.world.WorldProvider;
 import org.terasology.world.block.Block;
 import org.terasology.world.block.BlockManager;
-
-import javax.vecmath.Vector3f;
 
 @RegisterSystem(RegisterMode.AUTHORITY)
 public class BlockTrailAuthoritySystem extends BaseComponentSystem {
@@ -71,7 +70,7 @@ public class BlockTrailAuthoritySystem extends BaseComponentSystem {
         int surroundedSideCount = 0;
         for (Side side : Side.horizontalSides()) {
             Vector3i adjacentBlockPosition = side.getAdjacentPos(position);
-            if (worldProvider.getBlock(adjacentBlockPosition) != BlockManager.getAir()) {
+            if (worldProvider.getBlock(adjacentBlockPosition) != blockManager.getBlock(BlockManager.AIR_ID)) {
                 surroundedSideCount++;
             }
         }
