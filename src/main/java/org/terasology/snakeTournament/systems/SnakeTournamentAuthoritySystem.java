@@ -20,8 +20,8 @@ import org.terasology.entitySystem.event.ReceiveEvent;
 import org.terasology.entitySystem.systems.BaseComponentSystem;
 import org.terasology.entitySystem.systems.RegisterMode;
 import org.terasology.entitySystem.systems.RegisterSystem;
-import org.terasology.logic.health.DoDamageEvent;
 import org.terasology.snakeTournament.events.CharacterTrappedEvent;
+import org.terasology.logic.health.DoDamageEvent;
 
 @RegisterSystem(RegisterMode.AUTHORITY)
 public class SnakeTournamentAuthoritySystem extends BaseComponentSystem {
