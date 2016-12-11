@@ -1,6 +1,7 @@
 ## Snake Tournament
-Simulating the classic snake game where opponents match up against each and try crash the other into a wall.
 
-As the player moves forward, it leaves a trail behind of blocks (resembling a snake from an arial view). Every time you move to another block, the previous one is filled in, so the snake continually gets longer as you move. The player loses if he has no adjacent blocks to move in to.
+A tutorial module simulating the classic snake game where two slithering opponents attempt to crash each other into a wall.
 
-See the wiki for a coding walkthrough - http://github.com/Terasology/SnakeTournament/wiki
+As the player moves forward, they leave a trail of blocks behind (resembling a snake from an aerial view). Every time they move to another block, the previous one is filled in, so the snake gets longer and longer. The player loses if they has no adjacent blocks to move in to.
+
+See the wiki for a walkthrough on creating this module: http://github.com/Terasology/SnakeTournament/wiki
