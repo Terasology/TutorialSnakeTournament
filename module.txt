@@ -1,7 +1,7 @@
 {
     "id" : "SnakeTournament",
     "version" : "0.2.0",
-    "author" : "Josharias",
+    "author" : "Josharias, rzats, TheJYKoder",
     "displayName" : "SnakeTournament",
     "description" : "A module purposed for teaching new developers how to create a module via instructions on creating the game 'Snake'",
     "dependencies" : [
