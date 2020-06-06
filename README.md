@@ -1,4 +1,4 @@
-## Snake Tournament
+## Tutorial Snake Tournament
 
 A tutorial module simulating the classic snake game where two slithering opponents attempt to crash each other into a wall.
 
