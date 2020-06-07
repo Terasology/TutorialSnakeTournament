@@ -51,7 +51,7 @@ public class BlockTrailAuthoritySystem extends BaseComponentSystem {
         // check if we are in a different block position
         if (!previousBlockPosition.equals(currentBlockPosition)) {
             // get the block that we are going to insert into the world
-            Block trailBlock = blockManager.getBlock("Core:Stone");
+            Block trailBlock = blockManager.getBlock("CoreAssets:Stone");
 
             // put a block into the world at our previous block position
             worldProvider.setBlock(previousBlockPosition, trailBlock);
