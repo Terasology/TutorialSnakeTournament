@@ -1,14 +1,12 @@
 {
-    "id" : "SnakeTournament",
-    "version" : "0.2.0",
-    "author" : "",
-    "displayName" : "SnakeTournament",
-    "description" : "",
-    "dependencies" : [
-          {
-                "id" : "Core",
-                "minVersion" : "1.0.0"
-          }
+    "id": "TutorialSnakeTournament",
+    "version": "0.2.0",
+    "author": "The Terasology Foundation",
+    "displayName": "Tutorial Snake Tournament",
+    "description": "A tutorial module simulating the classic snake game where two slithering opponents attempt to crash each other into a wall.",
+    "dependencies": [
+          { "id" : "CoreAssets", "minVersion" : "2.1.0" }
     ],
-    "serverSideOnly" : false
+    "serverSideOnly": false,
+    "isTutorial": true
 }
