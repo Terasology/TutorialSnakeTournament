@@ -1,28 +1,16 @@
-/*
- * Copyright 2014 MovingBlocks
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+// Copyright 2021 The Terasology Foundation
+// SPDX-License-Identifier: Apache-2.0
 package org.terasology.snakeTournament.systems;
 
+import org.joml.RoundingMode;
+import org.joml.Vector3f;
+import org.joml.Vector3i;
 import org.terasology.entitySystem.entity.EntityRef;
 import org.terasology.entitySystem.event.ReceiveEvent;
 import org.terasology.entitySystem.systems.BaseComponentSystem;
 import org.terasology.entitySystem.systems.RegisterMode;
 import org.terasology.entitySystem.systems.RegisterSystem;
 import org.terasology.math.Side;
-import org.terasology.math.geom.Vector3i;
-import org.terasology.math.geom.Vector3f;
 import org.terasology.physics.events.MovedEvent;
 import org.terasology.registry.In;
 import org.terasology.snakeTournament.events.CharacterTrappedEvent;
@@ -40,13 +28,13 @@ public class BlockTrailAuthoritySystem extends BaseComponentSystem {
     @ReceiveEvent
     public void onCharacterMoved(MovedEvent event, EntityRef character) {
         // calculate our previous position by subtracting the delta
-        Vector3f previousPosition = new Vector3f(event.getPosition());
-        previousPosition.sub(event.getDelta());
+        Vector3f currentPosition = new Vector3f(event.getPosition());
+        Vector3f previousPosition = currentPosition.sub(event.getDelta(), new Vector3f());
 
         // find out the current and previous block positions
         // offset by 0.5 to account for the fact that blocks are center aligned on the whole numbers
-        Vector3i previousBlockPosition = new Vector3i(previousPosition, 0.5f);
-        Vector3i currentBlockPosition = new Vector3i(event.getPosition(), 0.5f);
+        Vector3i currentBlockPosition = new Vector3i(currentPosition.add(new Vector3f(0.5f, 0.5f, 0.5f)), RoundingMode.FLOOR);
+        Vector3i previousBlockPosition = new Vector3i(previousPosition.add(new Vector3f(0.5f, 0.5f, 0.5f)), RoundingMode.FLOOR);
 
         // check if we are in a different block position
         if (!previousBlockPosition.equals(currentBlockPosition)) {
@@ -69,7 +57,7 @@ public class BlockTrailAuthoritySystem extends BaseComponentSystem {
         // check to see if all adjacent blocks are not air
         int surroundedSideCount = 0;
         for (Side side : Side.horizontalSides()) {
-            Vector3i adjacentBlockPosition = side.getAdjacentPos(position);
+            Vector3i adjacentBlockPosition = side.getAdjacentPos(position, new Vector3i());
             if (worldProvider.getBlock(adjacentBlockPosition) != blockManager.getBlock(BlockManager.AIR_ID)) {
                 surroundedSideCount++;
             }
