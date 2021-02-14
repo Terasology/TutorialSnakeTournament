@@ -17,6 +17,7 @@ import org.terasology.snakeTournament.events.CharacterTrappedEvent;
 import org.terasology.world.WorldProvider;
 import org.terasology.world.block.Block;
 import org.terasology.world.block.BlockManager;
+import org.terasology.world.block.Blocks;
 
 @RegisterSystem(RegisterMode.AUTHORITY)
 public class BlockTrailAuthoritySystem extends BaseComponentSystem {
@@ -33,8 +34,8 @@ public class BlockTrailAuthoritySystem extends BaseComponentSystem {
 
         // find out the current and previous block positions
         // offset by 0.5 to account for the fact that blocks are center aligned on the whole numbers
-        Vector3i currentBlockPosition = new Vector3i(currentPosition.add(new Vector3f(0.5f, 0.5f, 0.5f)), RoundingMode.FLOOR);
-        Vector3i previousBlockPosition = new Vector3i(previousPosition.add(new Vector3f(0.5f, 0.5f, 0.5f)), RoundingMode.FLOOR);
+        Vector3i currentBlockPosition = Blocks.toBlockPos(currentPosition);
+        Vector3i previousBlockPosition = Blocks.toBlockPos(previousPosition);
 
         // check if we are in a different block position
         if (!previousBlockPosition.equals(currentBlockPosition)) {
