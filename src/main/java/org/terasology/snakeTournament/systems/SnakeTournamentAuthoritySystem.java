@@ -20,7 +20,7 @@ import org.terasology.engine.entitySystem.event.ReceiveEvent;
 import org.terasology.engine.entitySystem.systems.BaseComponentSystem;
 import org.terasology.engine.entitySystem.systems.RegisterMode;
 import org.terasology.engine.entitySystem.systems.RegisterSystem;
-import org.terasology.engine.logic.health.event.DoDamageEvent;
+import org.terasology.module.health.events.DoDamageEvent;
 import org.terasology.snakeTournament.events.CharacterTrappedEvent;
 
 @RegisterSystem(RegisterMode.AUTHORITY)
