@@ -2,22 +2,21 @@
 // SPDX-License-Identifier: Apache-2.0
 package org.terasology.snakeTournament.systems;
 
-import org.joml.RoundingMode;
 import org.joml.Vector3f;
 import org.joml.Vector3i;
-import org.terasology.entitySystem.entity.EntityRef;
-import org.terasology.entitySystem.event.ReceiveEvent;
-import org.terasology.entitySystem.systems.BaseComponentSystem;
-import org.terasology.entitySystem.systems.RegisterMode;
-import org.terasology.entitySystem.systems.RegisterSystem;
-import org.terasology.math.Side;
-import org.terasology.physics.events.MovedEvent;
-import org.terasology.registry.In;
+import org.terasology.engine.entitySystem.entity.EntityRef;
+import org.terasology.engine.entitySystem.event.ReceiveEvent;
+import org.terasology.engine.entitySystem.systems.BaseComponentSystem;
+import org.terasology.engine.entitySystem.systems.RegisterMode;
+import org.terasology.engine.entitySystem.systems.RegisterSystem;
+import org.terasology.engine.math.Side;
+import org.terasology.engine.physics.events.MovedEvent;
+import org.terasology.engine.registry.In;
 import org.terasology.snakeTournament.events.CharacterTrappedEvent;
-import org.terasology.world.WorldProvider;
-import org.terasology.world.block.Block;
-import org.terasology.world.block.BlockManager;
-import org.terasology.world.block.Blocks;
+import org.terasology.engine.world.WorldProvider;
+import org.terasology.engine.world.block.Block;
+import org.terasology.engine.world.block.BlockManager;
+import org.terasology.engine.world.block.Blocks;
 
 @RegisterSystem(RegisterMode.AUTHORITY)
 public class BlockTrailAuthoritySystem extends BaseComponentSystem {
